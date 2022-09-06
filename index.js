@@ -22,72 +22,100 @@
 
  // Simulador interactivo
 
+ const persona = {
+  nombre: "",
+  dni : 0
+ }
+
+ function Turno(dia,horario,especialidad,medioPago){
+  this.dia = dia,
+  this.horario = horario,
+  this.especialidad = especialidad,
+  this.medioPago = medioPago
+ }
+
 var nombreCompleto = "";
 var dni = 0;
 var fechaUsuario = "";
 var horaUsuario = "";
 var especialidad = "";
-var arrHoras = ["0","18", "18:30", "19", "19:30"]
-var arrDias = ["0","Lunes","Martes","Miercoles","Jueves"]
-var arrEspecialidades = ["0","Médica Clinica","Traumatologia"]
+var medioPago = "";
+
+const arrTurnos = [null,"18:00", "18:30", "19:00", "19:30", "20:00", "20:30"]
+const arrDias = [null,"Lunes","Martes","Miercoles","Jueves","Viernes"]
+const arrEspecialidades = [null,"Medico Clinico","Traumatologia"]
+const arrMedioPago = [null,"Particular", "Obra Social", "Particular"]
+
+//var usuario = Object.create(persona)
 
 function solicitarDatos() {
   alert("Bienvenidos al PORTAL DEL PACIENTE");
-  nombreCompleto = prompt("Ingrese su nombre");
-  while (nombreCompleto === "") {
-    nombreCompleto = prompt("Ingrese su nombre").toUpperCase();
-  }
+  do {
+    nombreCompleto = prompt("Ingrese su nombre: ");
+  } while (nombreCompleto === "")
+  //usuario.nombre = nombreCompleto
 
-  dni = prompt("Ingrese su DNI: ");
-  while (dni == "") {
+  do {
     dni = prompt("Ingrese su DNI: ");
-  }
+  } while (dni == "") 
+   //usuario.dni = dni
 }
 
+function crearLista(arrlista) {
+  let lista = "";
+  for(let i = 1; i<arrlista.length; i++) {
+    lista = lista + "\n" + i + " - "+ arrlista[i]
+  }
+  return lista
+}
+
+let diasLista = crearLista(arrDias)
+let turnosLista = crearLista(arrTurnos)
+let especialidadesLista = crearLista(arrEspecialidades)
+let medioPagoLista = crearLista(arrMedioPago)
+
 function solicitarTurno() {
-  especialidad = Number(prompt("Especialidad: \n1-Médica Clinica  \n2-Traumatologia"));
-  while (especialidad == "") {
-    especialidad = Number(prompt("Ingresar la Especialidad: "));
-  }
+  do {
+    especialidad = Number(prompt("Especialidad: " + especialidadesLista)); 
+  } while (especialidad == "")
+     
+  do {
+    fechaUsuario = Number(prompt("Ingresar Día del turno: " + diasLista ));
+  } while (fechaUsuario == "")
 
-  fechaUsuario = Number(prompt("Ingresar Día del turno: \n1-Lunes \n2-Martes \n3-Miercoles"));
-  while (fechaUsuario == "") {
-    fechaUsuario = Number(prompt("Ingresar Día: "));
-  }
-
-  horaUsuario = Number(prompt("Ingresar Hora Disponible: \n1-18:00hs  \n2-18:30hs  \n3-19:00hs   \n4-19:30hs"));
-  while (horaUsuario == "") {
-    horaUsuario = prompt("Ingresar Hora: ");
-  }
+  do {
+    horaUsuario = Number(prompt("Ingresar Hora Disponible: " + turnosLista));
+  } while (horaUsuario == "") 
 }
 
  function realizarPago(){
-    let MedioPago = 0;
-    let pagado = false;
-    do{
-        MedioPago = Number(prompt("ingrese el medio de pago: 1-Particular 2-Swiss Medical 3-salir"));
-        if (MedioPago == 1) {
-         console.log("SE ABONA EN CONSULTORIO");
-         pagado = true;
-        } else if (MedioPago == 2) {
-        console.log("ACUDIR CON EL CARNET DE SU OBRA SOCIAL");
-        pagado = true;
-        }
-    } while (MedioPago != 3 && !(pagado));
-    if (MedioPago ==3 && !(pagado)) {
-        console.log("No se ha registrado metodo de pago, debera abonar en consultorio")
-    }
+  let op = Number(prompt("ingrese el medio de pago: " + medioPagoLista));
+  
+  switch (op) {
+    case 1: 
+      console.log("SE ABONA EN CONSULTORIO");
+      
+      break;
+    case 2: 
+      console.log("ACUDIR CON EL CARNET DE SU OBRA SOCIAL");
+      
+      break;
+    default:
+      console.log("No se ha registrado metodo de pago, debera abonar en consultorio");
+      
+      break;
+  }
+    medioPago = arrMedioPago[op]
 }
 
-function mostrarResume() {
-  alert("Paciente: " + nombreCompleto + "\nDNI: " + dni + "\nEspecialidad: " + arrEspecialidades[especialidad] + "\nFecha del turno: " + arrDias[fechaUsuario] + "\nHora: " + arrHoras[horaUsuario] + "Hs");
+function mostrarResumen() {
+  alert("Paciente: " + nombreCompleto + "\nDNI: " + dni + "\nEspecialidad: " + arrEspecialidades[especialidad] + "\nFecha del turno: " + arrDias[fechaUsuario] + "\nHora: " + arrTurnos[horaUsuario] + "Hs" + "\nMedioDePagoSeleccionado: " + medioPago);
 }
 
 solicitarDatos();
 solicitarTurno();
-
 realizarPago();
-mostrarResume();
+mostrarResumen();
 
     
 
