@@ -13,7 +13,7 @@ body {
     font-family: Roboto;
 }
 
-.contenedor-form {
+.contenedor-form  {
     background: rgba(0,0,0,.7);
     max-width: 600px;
     width: 100%;
@@ -23,7 +23,19 @@ body {
     position: relative;
     padding: 40px;
 }
-
+select {
+    background-color: black;
+    color: #FFF;
+    width: 100%;
+    margin: 0  0 20px 0;
+    border-radius: 5px;
+    padding: 10px;
+    border-bottom: 4px solid #ff851b;
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(255, 133, 27);
+   
+}
 .contenedor-form .toggle {
     position: absolute;
     top: 7px;
@@ -73,11 +85,7 @@ body {
     transition: all .5s ease;
 }
 
-/* .contenedor-form input[type="text"]:focus,
-.contenedor-form input[type="password"]:focus,
-.contenedor-form input[type="email"]:focus {
-    border-bottom: 4px solid #0075d9;
-}   */
+
 
 .contenedor-form input[type="submit"] {
     background: #FF851B;
@@ -121,3 +129,6 @@ body {
     display: block;
 }
 
+label select {
+    display: block;
+}

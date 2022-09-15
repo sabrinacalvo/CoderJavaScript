@@ -141,12 +141,12 @@
 // console.log(a);
 
 const Nombre = document.querySelector(".nombre")
-console.log(Nombre)
-console.log(Nombre.value)
 const Dni = document.querySelector(".dni")
-const Especialidad = document.querySelector(".especialidad")
-const Medico = document.querySelector(".medico")
-const Mediopago = document.querySelector(".mediopago")
+const Especialidad = document.querySelector(".select-especialidad")
+const Medico = document.querySelector(".select-medico")
+const Mediopago = document.querySelector(".select-pago")
+const Dia = document.querySelector(".select-dia")
+const Hora = document.querySelector(".select-hora")
 const ButtonAgregarTurno = document.querySelector(".button")
 
 const ListadoTurnos = document.querySelector(".listado-turnos")
@@ -161,7 +161,10 @@ ButtonAgregarTurno.onclick = () => {
         dni: Dni.value,
         especialidad: Especialidad.value,
         medico: Medico.value,
-        mediopago: Mediopago.Value,
+        mediopago: Mediopago.value,
+        dia: Dia.value,
+        hora: Hora.value
+
     }
      guardarTurno(baseDatos, Contacto)
    
@@ -170,19 +173,22 @@ cargarTurnos(baseDatos, ListadoTurnos)
 
 
 class Turno {
-    constructor(nombre, dni, especialidad, mediopago){
+    constructor(nombre, dni, especialidad, mediopago, medico, dia, hora){
         this.nombre = nombre;
         this.dni = dni;
         this.especialidad = especialidad;
+        this.medico = medico;
+        this.dia = dia;
+        this.hora = hora;
         this.mediopago = mediopago;
         this.mostrar = function () { console.log("Detalles de usuario: " + "\n" + this.nombre + "\n" + this.dni) }
     }
 }
 
 const arrTurnos = [
- new Turno("Maria Perez", "45.321.657","nutricionista", "obrasocial"),
- new Turno("Juan Lopez", "32.345.678", "traumatologia", "particular"),
- new Turno("Jose Garcia", "57.645.231", "Médica Clinica", "pami")
+ new Turno("Maria Perez", "45.321.657", "traumatologia"," obrasocial", "Ali Pablo", "Lunes", "seis"),
+ new Turno("Juan Lopez", "32.345.678", "traumatologia", "particular", "Ali Pablo", "Miercoles", "ocho"),
+ new Turno("Jose Garcia", "57.645.231", "traumatologia", "particular", "Ariel Perez", "Viernes", "siete")
 
 ]
 
@@ -200,7 +206,12 @@ function mostrarTurnos(arrTurnos) {
         <h1>${turno.nombre}</h2>
         <h3>${turno.dni}</h3>
         <p> ${turno.especialidad}</p>
-        <p>${turno.mediopago}</p><br>
+        <p>${turno.mediopago}</p>
+        <p>${turno.medico}</P>
+        <p>${turno.dia}</P>
+        <p>${turno.hora}</P><br>
+
+        
     `;
 
     // const botonVerDetalle = crearBotonVerDetalle(turno)

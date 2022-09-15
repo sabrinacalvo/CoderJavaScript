@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Turnos</title>
     <link rel="stylesheet" href="./style.css">
 
@@ -22,15 +23,45 @@
             <div class="Formulario-turno">
                 <input type="text" class="nombre" placeholder="Escriba su nombre aqui">
                 <input type="text" class="dni" placeholder="Escriba su Dni">
-                <input type="text" class="especialidad" placeholder="Elija Especialidad">
-                <input type="text" class="medico" placeholder="Elija Medico">
-                <!-- <label for="spoiler1">Medico </option>
-                <div class="spoiler">CONTENIDO OCULTO</div> -->
-                <input type="text" class="mediopago" placeholder="Elija MedioPago">
-                <button class="button">Agregar Turno</button>
                 
+                <select type="text" class="select-especialidad">
+                    <option value="free" selected>Elija Especialidad</option>
+                    <option value="Traumatologia">Traumatologia</option>
+                </select>
 
-                <div class="listado-turnos"></div>
+                
+                <select type="text" class="select-medico">
+                    <option value="free" selected>Elija Medico</option>
+                    <option value="Ali Pablo">Ali Pablo</option>
+                    <option value="Ariel Perez">Ariel Perez</option>
+                </select>
+
+                
+                <select type="text" class="select-pago">
+                    <option value="free" selected>Elija Medio de Pago</option>
+                    <option value="prepaga">Prepaga</option>
+                    <option value="particular">Particular</option>
+                </select>
+
+                <select type="text" class="select-dia">
+                    <option value="free" selected>Elija dia</option>
+                    <option value="lunes">Lunes</option>
+                    <option value="miercoles">Miercoles</option>
+                    <option value="viernes">Viernes</option>
+                </select>
+
+                <select type="text" class="select-hora">
+                    <option value="free" selected>Elija Hora</option>
+                    <option value="seis">18:00hs</option>
+                    <option value="siete">19:00hs</option>
+                    <option value="ocho">20:00hs</option>
+                </select>
+
+                <button class="button">Agregar Turno</button>
+
+               
+               
+                    <div class="listado-turnos"></div>
             </div>
 
             <!-- div para imprimir registros guardados-->
@@ -39,10 +70,10 @@
 
         </div>
 
-        <script src="./funciones.js"></script>  
+        <script src="./funciones.js"></script>
         <script src="./index.js"></script>
-          
-     
+
+
 
 </body>
 
