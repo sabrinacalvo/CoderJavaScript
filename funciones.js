@@ -32,6 +32,8 @@ const guardarTurno = (baseDatos, Contacto) =>{
      let especialidadTurno = document.createElement('p')
      let medicoTurno = document.createElement('p')
      let mediopagoTurno = document.createElement('p')
+     let horarioTurno = document.createElement('p')
+     let diaTurno = document.createElement('p')
      let iconoBorrar = document.createElement('span')
 
 
@@ -40,6 +42,9 @@ const guardarTurno = (baseDatos, Contacto) =>{
      especialidadTurno.innerHTML = contacto.especialidad
      medicoTurno.innerHTML = contacto.medico
      mediopagoTurno.innerHTML = contacto.mediopago
+     diaTurno.innerHTML = contacto.dia
+     horarioTurno.innerHTML = contacto.hora
+
      iconoBorrar.innerHTML = 'delete_forever'
 
      divTurno.classList.add('turno')
@@ -56,6 +61,8 @@ const guardarTurno = (baseDatos, Contacto) =>{
      divTurno.appendChild(especialidadTurno)
      divTurno.appendChild(medicoTurno)
      divTurno.appendChild(mediopagoTurno)
+     divTurno.appendChild(horarioTurno)
+     divTurno.appendChild(diaTurno)
      divTurno.appendChild(iconoBorrar)
      console.log(divTurno)
 

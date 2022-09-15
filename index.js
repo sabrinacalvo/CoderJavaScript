@@ -163,7 +163,7 @@ ButtonAgregarTurno.onclick = () => {
         medico: Medico.value,
         mediopago: Mediopago.value,
         dia: Dia.value,
-        hora: Hora.value
+        hora: Hora.value,
 
     }
      guardarTurno(baseDatos, Contacto)
