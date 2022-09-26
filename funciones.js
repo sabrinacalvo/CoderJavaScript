@@ -2,11 +2,12 @@
  
 const guardarTurno = (baseDatos, Contacto) =>{
     console.log("Guardado")
+    alert("Turno Agendado con exito!")
     baseDatos.setItem(Contacto.id, JSON.stringify(Contacto))
     window.location.href = ''
     const contactoTemporal = localStorage.getItem(Contacto.id);
         
-
+// Muestra turno
     console.log(contactoTemporal)
     document.getElementById(".especialidad").innerHTML = nombre; 
 

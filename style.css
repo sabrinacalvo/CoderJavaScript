@@ -41,18 +41,18 @@ select {
     top: 7px;
     right: 7px;
     height: 30px;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 25px;
     text-align: center;
-    border-top: 2px solid #ff851b;
-    border-bottom: 2px solid #ff851b;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
     cursor: pointer;
     transition: all .5s ease;
 }
 
 .contenedor-form .toggle:hover {
-    border-top: 2px solid #0075d9;
-    border-bottom: 2px solid #0075d9;
+    border-top: 2px solid #00c7d9;
+    border-bottom: 2px solid #00c7d9;
 }
 
 .contenedor-form .toggle span {
@@ -61,7 +61,7 @@ select {
 
 .contenedor-form h2 {
     margin: 0 0 28px 0;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 400;
     line-height: 1;
 }
@@ -80,7 +80,7 @@ select {
     border-bottom: 4px solid #ff851b;
     box-sizing: border-box;
     font-family: Roboto;
-    font-size: 14px;
+    font-size: 20px;
     font-weight:normal;
     transition: all .5s ease;
 }
@@ -113,6 +113,18 @@ select {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+button {
+    background: rgb(15, 15, 15);
+    color: white;
+    border-radius: 2px;
+    width: 100%;
+    padding: 10px 0;
+
+}
+button:hover{
+    background-color: white;
+    color: black;
+}
 
 .contenedor-form a {
     color: #fff;
@@ -131,4 +143,11 @@ select {
 
 label select {
     display: block;
+}
+
+.turno {
+ width: 100%;
+ padding: 10px;
+ display: block;
+ align-items: center;
 }
