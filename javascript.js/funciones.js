@@ -114,6 +114,13 @@ function limpiarRegistros() {
     document.querySelector(".button").value = "";
 }
 
-
+function saludar(){
+    Swal.fire({
+        title:'Bienvenido!',
+        text: 'Agende su Turno',
+        padding: '1rem',
+        timer: 1500
+    });
+ }
 
 
