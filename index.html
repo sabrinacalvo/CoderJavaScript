@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body onload="saludar()">
     <div class="contenedor-form">
         <div class="toggle">
             <h1>PORTAL PACIENTES</h1>
@@ -60,11 +60,10 @@
                     <option value="8:00">20:00hs</option>
                 </select>
 
-                <button class="button">Agregar Turno</button>
-
+                <button class="button" id="btn">Agregar Turno</button>
+                <button class="buttondos" id="btn2">Actualizar lista de Turnos</button>
                
-               
-                    <div class="listado-turnos"></div>
+                <div class="listado-turnos"></div>
             </div>
 
             <!-- div para imprimir registros guardados-->
@@ -72,11 +71,14 @@
             <div id="formulario"></div>
 
         </div>
-
-        <script src="./funciones.js"></script>
-        <script src="./index.js"></script>
-        <script src="./operadores.js"></script>
-       
+        
+        
+        <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script src="./javascript.js/Alert.js"></script>
+        <script src="./javascript.js/funciones.js"></script>
+        <script src="./javascript.js/index.js"></script>
+        <script src="./javascript.js/asincronia.js"></script>
 
 
 </body>
