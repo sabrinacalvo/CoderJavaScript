@@ -146,8 +146,17 @@ label select {
 }
 
 .turno {
+ display: block;
  width: 100%;
  padding: 10px;
  display: block;
  align-items: center;
+}
+img {
+    width: 150px;
+}
+.output {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
 }

@@ -17,10 +17,11 @@ const cargarTurnosDesdeDb = (baseDatos, parentNode) =>{
       }
  }
 
-const crearTurno = (parentNode, contacto, baseDatos) =>{
+ const crearTurno = (parentNode, contacto, baseDatos) =>{
   
     // Creo los elemento de HTML que van a gurardar los datos.
      let divTurno = document.createElement('div')
+     let imgTurno = document.createElement('img')
      let nombreTurno = document.createElement('h3')
      let dniTurno = document.createElement('p')
      let especialidadTurno = document.createElement('p')
@@ -31,6 +32,9 @@ const crearTurno = (parentNode, contacto, baseDatos) =>{
      let iconoBorrar = document.createElement('span')
 
     // Asigno los valores a los elementos de HTML.
+     imgTurno.src="https://i.pinimg.com/originals/7b/d9/56/7bd95674bd85d7061c85860ab56d6bc5.gif"
+     imgTurno.setAttribute('height', '60px');
+     imgTurno.setAttribute('width', '30px');
      nombreTurno.innerHTML = contacto.nombre
      dniTurno.innerHTML = contacto.dni
      especialidadTurno.innerHTML = contacto.especialidad
@@ -57,6 +61,7 @@ const crearTurno = (parentNode, contacto, baseDatos) =>{
      }
 
      // Al Div del turno le agrego el resto de los elementos / datos del turno.
+     divTurno.appendChild(imgTurno)//imagen
      divTurno.appendChild(nombreTurno)
      divTurno.appendChild(dniTurno)
      divTurno.appendChild(especialidadTurno)
@@ -120,7 +125,33 @@ function saludar(){
         text: 'Agende su Turno',
         padding: '1rem',
         timer: 1500
-    });
+    })
+    traerAPIImagen()
  }
+ 
+/*
+// Funcion para traer una imagen de la API Pixabay de imagenes gratis.
+*/
+function traerAPIImagen(){
+
+    const output = document.querySelector(".output");
+    var API_KEY = '30352043-48886b822a1da773034303f30';
+    var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('hospital');
+    
+    let listaImagenes = '';
+    fetch(URL)
+        .then((response) => { return response.json(); }) // respuesta va a formato JSON
+        .then((data) => { let imagenes = data;
+            for(let elem=0;elem<=2;elem++) { 
+                let indice = Math.floor(Math.random() * 20)
+                listaImagenes += `<div style="display:table-cell";align="center"><center><img src="${imagenes.hits[indice].previewURL}"></center></div>`
+            }
+            output.innerHTML = listaImagenes;
+        })
+        .catch(err => { // Para mostrar el error
+            console.log(err)
+        });
+        
+}
 
 
