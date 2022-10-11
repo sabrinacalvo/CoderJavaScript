@@ -9,11 +9,11 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Turnos</title>
     <link rel="stylesheet" href="./style.css">
-    
+
 
 </head>
 
-<body onload="saludar()">
+<body onload="traerAPIImagen()">
     <div class="contenedor-form">
         <div class="toggle">
             <h1>PORTAL PACIENTES</h1>
@@ -22,24 +22,24 @@
         <div id="container">
             <h2>Solicitar Turno</h2>
             <div class="Formulario-turno">
-                
+
                 <input type="text" class="nombre" placeholder="Escriba su nombre aqui">
                 <input type="text" class="dni" placeholder="Escriba su Dni">
-                
+
                 <select type="text" class="select-especialidad">
                     <option value="free" selected>Especialidad</option>
                     <option value="Traumatologia">Traumatologia</option>
-                    
+
                 </select>
 
-                
+
                 <select type="text" class="select-medico">
                     <option value="free" selected>Elija Medico</option>
                     <option value="Ali Pablo">Ali Pablo</option>
-                    <!-- <option value="Ariel Perez">Ariel Perez</option> -->
+                   
                 </select>
 
-                
+
                 <select type="text" class="select-pago">
                     <option value="free" selected>Elija Medio de Pago</option>
                     <option value="prepaga">Prepaga</option>
@@ -62,23 +62,20 @@
 
                 <button class="button" id="btn">Agregar Turno</button>
                 <button class="buttondos" id="btn2">Actualizar lista de Turnos</button>
-               
-                <div class="listado-turnos"></div>
-                
+
+
             </div>
-
-            <!-- div para imprimir registros guardados-->
-
-            <div id="formulario"></div>
-
+          
         </div>
-        
-        
+
+        <div class="listado-turnos"></div>
+
+
         <script src="http://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
         <script src="./javascript.js/funciones.js"></script>
         <script src="./javascript.js/index.js"></script>
-        
+
 
 
 </body>

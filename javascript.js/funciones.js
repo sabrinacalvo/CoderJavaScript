@@ -1,8 +1,6 @@
-
 // Guardar un objeto Turno en base de datos
 const guardarTurnoEnDb = (baseDatos, nuevoTurno) =>{
     baseDatos.setItem(nuevoTurno.id, JSON.stringify(nuevoTurno));
-    //window.location.href = ''
     console.log("Turno guardado en Db!",localStorage.getItem(nuevoTurno.id));
 }
 
@@ -20,21 +18,22 @@ const cargarTurnosDesdeDb = (baseDatos, parentNode) =>{
  const crearTurno = (parentNode, contacto, baseDatos) =>{
   
     // Creo los elemento de HTML que van a gurardar los datos.
-     let divTurno = document.createElement('div')
-     let imgTurno = document.createElement('img')
-     let nombreTurno = document.createElement('h3')
-     let dniTurno = document.createElement('p')
-     let especialidadTurno = document.createElement('p')
-     let medicoTurno = document.createElement('p')
-     let mediopagoTurno = document.createElement('p')
-     let horarioTurno = document.createElement('p')
-     let diaTurno = document.createElement('p')
-     let iconoBorrar = document.createElement('span')
+     let divTurno = document.createElement('table')
+          let imgTurno = document.createElement('img')
+     let nombreTurno = document.createElement('td')
+     let dniTurno = document.createElement('td')
+
+     let especialidadTurno = document.createElement('td')
+     let medicoTurno = document.createElement('td')
+     let mediopagoTurno = document.createElement('td')
+     let horarioTurno = document.createElement('td')
+     let diaTurno = document.createElement('td')
+     let iconoBorrar = document.createElement('td')
 
     // Asigno los valores a los elementos de HTML.
-     imgTurno.src="https://i.pinimg.com/originals/7b/d9/56/7bd95674bd85d7061c85860ab56d6bc5.gif"
-     imgTurno.setAttribute('height', '60px');
-     imgTurno.setAttribute('width', '30px');
+      imgTurno.src="https://i.pinimg.com/originals/7b/d9/56/7bd95674bd85d7061c85860ab56d6bc5.gif"
+      imgTurno.setAttribute('height', '30px');
+      imgTurno.setAttribute('width', '15px');
      nombreTurno.innerHTML = contacto.nombre
      dniTurno.innerHTML = contacto.dni
      especialidadTurno.innerHTML = contacto.especialidad
@@ -105,29 +104,6 @@ function hayCamposVacios(fichaDatos){
     return (fichaDatos.nombre=="" || fichaDatos.dni=="" || fichaDatos.especialidad=="free" ||
     fichaDatos.medico=='free' || fichaDatos.pago=="free" || fichaDatos.dia=='free' ||
     fichaDatos.hora=='free')}
-/*
-Funcion para limpiar los campos del formulario.
-*/
-function limpiarRegistros() {
-    document.querySelector('.nombre').value = "";
-    document.querySelector(".dni").value = "";
-    document.querySelector(".select-especialidad").value = "free";
-    document.querySelector(".select-medico").value = "free";
-    document.querySelector(".select-pago").value = "free";
-    document.querySelector(".select-dia").value = "free";
-    document.querySelector(".select-hora").value = "free";
-    document.querySelector(".button").value = "";
-}
-
-function saludar(){
-    Swal.fire({
-        title:'Bienvenido!',
-        text: 'Agende su Turno',
-        padding: '1rem',
-        timer: 1500
-    })
-    traerAPIImagen()
- }
  
 /*
 // Funcion para traer una imagen de la API Pixabay de imagenes gratis.

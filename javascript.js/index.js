@@ -41,36 +41,12 @@ if (baseDatos.length==0){
         guardarTurnoEnDb(baseDatos,arrTurnos[i])
 }
 
-// Esta funcion se encarga de mostrar/enviar todos los turnos del arreglo al <DIV> en index.
-function mostrarTurnosArreglo(arrTurnos) {
-    // Formulario es el 
-    const contenedorDeTurnos = document.getElementById("formulario");
-    contenedorDeTurnos.innerHTML = "";
-    // por cada uno
-    arrTurnos.forEach(turno => {
-        const divTurno = document.createElement("div");
-        divTurno.classList.add("turno");
-        divTurno.innerHTML =  `
-            <h3>${turno.nombre}</h3>
-            <p>${turno.dni}</p>
-            <p> ${turno.especialidad}</p>
-            <p>${turno.mediopago}</p>
-            <p>${turno.medico}</P>
-            <p>${turno.dia}</P>
-            <p>${turno.hora}</P><hr> 
-            <span>'delete_forever'</span>
-            `;
-    contenedorDeTurnos.appendChild(divTurno);
-    })
-}
-// Funcion comentada dado que ya no se usa.
-// mostrarTurnosArreglo(arrTurnos);
-
 ButtonActualizar.onclick = () => {
     window.location.href = ''
 }
 
-ButtonAgregarTurno.onclick = () => {
+ButtonAgregarTurno.onclick = (e) => {
+    e.preventDefault();
     // Creo mi objeto para guardar los datos del turno.
     let Contacto = new Turno(
         Nombre.value,
@@ -94,7 +70,9 @@ ButtonAgregarTurno.onclick = () => {
             if (esHorarioDisponible(baseDatos, medico, hora, dia) && validarEdad(Contacto.dni) && !hayCamposVacios(Contacto)) {
                 Swal.fire('Turno guardado!', '', 'success'),
                 guardarTurnoEnDb(baseDatos, Contacto),
-                limpiarRegistros()
+                window.location.href = ''
+                
+                
             }else{
                 Swal.fire('Horario/dia no disponible or campos vacios!', '', 'info');
             }
@@ -102,7 +80,7 @@ ButtonAgregarTurno.onclick = () => {
             Swal.fire('Turno NO guardado', '', 'info')
         }
     })
- 
+    
 }
 
 // Cargo todos los turnos de la base de Datos en el <DIV> del Index "ListadoTurno"
